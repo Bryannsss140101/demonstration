@@ -1,5 +1,5 @@
 const PDFS = [
-    { file: "pdf/P1__Circle_Demostration.pdf", title: "Demostración del área de un círculo" },
+    { file: "pdf/P1__Circle_Demostration.pdf", title: "Área de un círculo" },
 ];
 
 // Elementos
