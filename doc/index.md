@@ -1,4 +1,5 @@
 # Mi demostración
 
-Abrir PDF: [main.pdf](P1__Circle_Demostration.pdf.pdf)
+Abrir PDF: [main.pdf](P1__Circle_Demostration.pdf)
+
 
