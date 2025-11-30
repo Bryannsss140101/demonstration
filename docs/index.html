@@ -1,50 +1,57 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi demostración</title>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demonstration</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="wrap header-wrap">
-    <div class="brand">
-      <div class="title" id="doc-title">Mi demostración</div>
-      <div class="subtitle">Documento en PDF</div>
-    </div>
+    <header class="site-header">
+        <div class="wrap header-wrap">
+            <div class="brand">
+                <div class="title" id="doc-title">Demonstration</div>
+                <div class="subtitle" id="doc-subtitle">Select a document</div>
+            </div>
+            <div class="spacer"></div>
 
-    <div class="spacer"></div>
+            <a class="btn" id="open-btn" href="#" target="_blank" rel="noopener">
+                Open a new tab
+            </a>
+            <a class="btn primary" id="download-btn" href="#" download>
+                Download PDF
+            </a>
+        </div>
+    </header>
 
-    <a class="btn" id="open-btn" href="main.pdf" target="_blank" rel="noopener">
-      Abrir en pestaña nueva
-    </a>
-    <a class="btn primary" id="download-btn" href="main.pdf" download>
-      Descargar PDF
-    </a>
-  </div>
-</header>
+    <main class="wrap main-wrap grid">
+        <aside class="sidebar card">
+            <div class="card-head">
+                <span class="pill">Demonstration</span>
+            </div>
+            <ul class="list" id="pdf-list"></ul>
+        </aside>
 
-<main class="wrap main-wrap">
-  <section class="card">
-    <div class="card-head">
-      <span class="pill">Visor</span>
-      <span class="pill" id="pdf-name">main.pdf</span>
-      <div class="spacer"></div>
-      <span class="pill online">Online</span>
-    </div>
+        <section class="viewer card">
+            <div class="card-head">
+                <span class="pill">Visualizer</span>
+                <span class="pill" id="pdf-name">—</span>
+                <div class="spacer"></div>
+                <span class="pill online">Online</span>
+            </div>
+            <iframe id="pdf-frame" src=""></iframe>
+        </section>
+    </main>
 
-    <iframe id="pdf-frame" src="main.pdf"></iframe>
-  </section>
-</main>
+    <footer class="wrap site-footer">
+        <div>Made whit GitHub Pages.</div>
+        <div>Repository with LaTeX and PDFs.</div>
+    </footer>
 
-<footer class="wrap site-footer">
-  <div>Hecho con GitHub Pages.</div>
-  <div>Código fuente en el repositorio.</div>
-</footer>
-
-<script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
+
 </html>

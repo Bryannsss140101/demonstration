@@ -1,4 +1,4 @@
-:root{
+:root {
   --bg: #0f1221;
   --card: #161a2f;
   --text: #e8eaf6;
@@ -6,10 +6,13 @@
   --accent: #6ea8fe;
   --accent-2: #7ee787;
 }
-*{ box-sizing: border-box; }
 
-body{
-  margin:0;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:
     radial-gradient(1200px 600px at 10% -10%, #1c2350 0%, transparent 50%),
@@ -18,39 +21,45 @@ body{
   color: var(--text);
 }
 
-.wrap{
+.wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 18px;
 }
 
-.spacer{ flex:1; }
+.spacer {
+  flex: 1;
+}
 
 /* Header */
-.site-header{
-  position: sticky; top:0;
+.site-header {
+  position: sticky;
+  top: 0;
   backdrop-filter: blur(8px);
-  background: rgba(15,18,33,.8);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(15, 18, 33, .8);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
   z-index: 10;
 }
-.header-wrap{
-  display:flex;
-  align-items:center;
-  gap:12px;
+
+.header-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.title{
+
+.title {
   font-size: 20px;
   font-weight: 700;
 }
-.subtitle{
+
+.subtitle {
   font-size: 13px;
   color: var(--muted);
   margin-top: 2px;
 }
 
 /* Buttons */
-.btn{
+.btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -59,57 +68,67 @@ body{
   background: var(--card);
   color: var(--text);
   text-decoration: none;
-  border:1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255, 255, 255, .08);
   font-size: 14px;
   transition: .15s ease;
   white-space: nowrap;
 }
-.btn:hover{
+
+.btn:hover {
   transform: translateY(-1px);
-  border-color: rgba(255,255,255,.16);
+  border-color: rgba(255, 255, 255, .16);
 }
-.btn.primary{
+
+.btn.primary {
   background: linear-gradient(180deg, #2b72ff, #1f4fd6);
   border: none;
 }
 
 /* Card + iframe */
-.main-wrap{ padding-top: 0; }
-.card{
+.main-wrap {
+  padding-top: 0;
+}
+
+.card {
   background: var(--card);
-  border:1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255, 255, 255, .08);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
-.card-head{
+
+.card-head {
   padding: 14px;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
-.pill{
+
+.pill {
   font-size: 12px;
   color: var(--muted);
-  background: rgba(255,255,255,.06);
+  background: rgba(255, 255, 255, .06);
   padding: 4px 8px;
   border-radius: 999px;
 }
-.pill.online{ color: var(--accent-2); }
 
-iframe{
-  width:100%;
+.pill.online {
+  color: var(--accent-2);
+}
+
+iframe {
+  width: 100%;
   height: calc(100vh - 170px);
-  border:0;
+  border: 0;
   background: #0b0e1a;
 }
 
 /* Footer */
-.site-footer{
+.site-footer {
   color: var(--muted);
   font-size: 12px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   gap: 12px;
   opacity: .9;
@@ -117,9 +136,77 @@ iframe{
 }
 
 /* Responsive */
-@media (max-width: 600px){
-  .header-wrap{ flex-direction: column; align-items: flex-start; }
-  iframe{ height: calc(100vh - 220px); }
-  .btn{ width: 100%; justify-content: center; }
-  .site-footer{ flex-direction: column; }
+@media (max-width: 600px) {
+  .header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  iframe {
+    height: calc(100vh - 220px);
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+}
+
+.sidebar {
+  height: fit-content;
+}
+
+.viewer iframe {
+  height: calc(100vh - 170px);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.list-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, .08);
+  cursor: pointer;
+  font-size: 14px;
+  transition: .12s ease;
+}
+
+.list-btn:hover {
+  border-color: rgba(255, 255, 255, .18);
+  transform: translateY(-1px);
+}
+
+.list-btn.active {
+  background: rgba(110, 168, 254, .15);
+  border-color: rgba(110, 168, 254, .6);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer iframe {
+    height: calc(100vh - 240px);
+  }
 }
