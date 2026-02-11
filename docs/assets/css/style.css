@@ -239,4 +239,18 @@ iframe {
   .site-footer {
     flex-direction: column;
   }
+
+.doc-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.doc-description {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  max-width: 500px;
+}
+
+  
 }
