@@ -4,52 +4,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Technical Notes | Bryan Ninamango</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
+    <div class="main-container">
+        <header class="header">
+            <div class="brand">
+                <h1>Technical Notes</h1>
+                <p>Mathematics & Computational Experiments</p>
+            </div>
+            <nav class="meta">
+                <span>By Bryan Ninamango</span>
+            </nav>
+        </header>
 
-<header class="site-header">
-    <div class="wrap header-wrap">
-        <div>
-            <h1 class="title">Technical Notes</h1>
-            <p class="subtitle">
-                Mathematics · Algorithms · Computational Experiments
-            </p>
+        <div class="content-grid">
+            <aside class="sidebar">
+                <nav>
+                    <h3>Archive</h3>
+                    <ul id="pdf-list" class="doc-list"></ul>
+                </nav>
+            </aside>
+
+            <main class="viewer-section">
+                <div class="document-info">
+                    <div class="info-text">
+                        <h2 id="pdf-title">—</h2>
+                        <p id="pdf-description"></p>
+                    </div>
+                    <div class="info-actions">
+                        <a id="open-btn" target="_blank" class="btn-text">Open Fullscreen</a>
+                        <a id="download-btn" download class="btn-primary">Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="iframe-container">
+                    <iframe id="pdf-frame"></iframe>
+                </div>
+            </main>
         </div>
+
+        <footer class="footer">
+            <p>© 2026 Bryan Ninamango · Powered by LaTeX & GitHub</p>
+        </footer>
     </div>
-</header>
 
-<main class="wrap layout">
-
-    <aside class="sidebar">
-        <h3 class="section-title">Documents</h3>
-        <ul id="pdf-list" class="doc-list"></ul>
-    </aside>
-
-    <section class="viewer">
-        <div class="viewer-header">
-            <div>
-                <h2 id="pdf-title">—</h2>
-                <p id="pdf-description" class="description"></p>
-            </div>
-
-            <div class="actions">
-                <a id="open-btn" target="_blank" class="link">Open</a>
-                <a id="download-btn" download class="button">Download</a>
-            </div>
-        </div>
-
-        <iframe id="pdf-frame"></iframe>
-    </section>
-
-</main>
-
-<footer class="footer wrap">
-    <span>Written in LaTeX · Hosted on GitHub Pages</span>
-    <span>© 2026 Bryan Ninamango Arroyo</span>
-</footer>
-
-<script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
