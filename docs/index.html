@@ -1,59 +1,56 @@
 <!doctype html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Demonstration</title>
+    <title>Research Documentation | Bryan Ninamango</title>
     <link rel="icon" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-    <header class="site-header">
-        <div class="wrap header-wrap">
-            <div class="brand">
-                <div>
-                    <div class="title" id="doc-title">Demonstration</div>
-                    <div class="subtitle" id="doc-subtitle"></div>
-                </div>
+<header class="site-header">
+    <div class="wrap header-wrap">
+        <div class="brand">
+            <div class="title">Research Documentation</div>
+            <div class="subtitle">
+                Mathematical proofs · Algorithm design · Computational experiments
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <a class="btn" id="open-btn" target="_blank">Open in new tab</a>
+        <a class="btn primary" id="download-btn" download>Download PDF</a>
+    </div>
+</header>
+
+<main class="wrap main-wrap grid">
+
+    <aside class="sidebar card">
+        <div class="card-head">
+            <span class="pill">Available Papers</span>
+        </div>
+        <ul class="list" id="pdf-list"></ul>
+    </aside>
+
+    <section class="viewer card">
+        <div class="card-head">
+            <div>
+                <div class="doc-title" id="pdf-title">—</div>
+                <div class="doc-description" id="pdf-description"></div>
             </div>
             <div class="spacer"></div>
-
-            <a class="btn" id="open-btn" href="#" target="_blank" rel="noopener">
-                Open a new tab
-            </a>
-            <a class="btn primary" id="download-btn" href="#" download>
-                Download PDF
-            </a>
+            <span class="pill online">Preview</span>
         </div>
-    </header>
+        <iframe id="pdf-frame"></iframe>
+    </section>
 
-    <main class="wrap main-wrap grid">
-        <aside class="sidebar card">
-            <div class="card-head">
-                <span class="pill">Documents</span>
-            </div>
-            <ul class="list" id="pdf-list"></ul>
-        </aside>
+</main>
 
-        <section class="viewer card">
-            <div class="card-head">
-                <span class="pill" id="pdf-name">—</span>
-                <div class="spacer"></div>
-                <span class="pill online">Online</span>
-            </div>
-            <iframe id="pdf-frame" src=""></iframe>
-        </section>
-    </main>
+<footer class="wrap site-footer">
+    <div>Built with LaTeX · Hosted on GitHub Pages</div>
+    <div>© 2026 Bryan Ninamango Arroyo</div>
+</footer>
 
-    <footer class="wrap site-footer">
-        <div>Made whit GitHub Pages.</div>
-        <div>Repository with LaTeX and PDFs.</div>
-    </footer>
-
-    <script src="assets/js/app.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
-
 </html>
