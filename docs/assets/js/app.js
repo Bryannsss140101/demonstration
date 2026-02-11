@@ -1,13 +1,13 @@
 const PDFS = [
     {
         file: "pdf/P1__Circle_Demostration.pdf",
-        title: "Area of a Circle — Integral Derivation",
-        description: "Formal proof of the area formula using integral calculus. Explores polar coordinates and Leibniz notation."
+        title: "Circle Demostration",
+        description: "Formal mathematical derivation of the area formula using integral calculus and geometric reasoning."
     },
     {
         file: "pdf/P2__TicTacToe.pdf",
-        title: "Tic Tac Toe AI — Algorithm Design",
-        description: "Implementation of the Minimax algorithm for a perfect-play agent in a 3x3 grid."
+        title: "Tic Tac Toe",
+        description: "Implementation of the Minimax algorithm for decision-based agents in zero-sum games."
     }
 ];
 
@@ -18,43 +18,34 @@ const descEl = document.getElementById("pdf-description");
 const openBtn = document.getElementById("open-btn");
 const downloadBtn = document.getElementById("download-btn");
 
-function init() {
-    PDFS.forEach((p, i) => {
-        const li = document.createElement("li");
-        li.className = "doc-item";
-        li.textContent = p.title;
-        li.addEventListener('click', () => loadPdf(i));
-        listEl.appendChild(li);
-    });
-    
-    // Cargar el primero por defecto
-    loadPdf(0);
-}
-
 function loadPdf(i) {
     const p = PDFS[i];
     
-    // Efecto de carga suave
-    frameEl.style.opacity = 0;
+    // Carga de datos
+    frameEl.src = p.file;
+    titleEl.textContent = p.title;
+    descEl.textContent = p.description;
+    openBtn.href = p.file;
+    downloadBtn.href = p.file;
     
-    setTimeout(() => {
-        frameEl.src = p.file;
-        titleEl.textContent = p.title;
-        descEl.textContent = p.description;
-        openBtn.href = p.file;
-        downloadBtn.href = p.file;
-        frameEl.style.opacity = 1;
-    }, 150);
-
-    // Actualizar estado activo
+    // Gestión de clases activas
     document.querySelectorAll(".doc-item").forEach((el, idx) => {
-        el.classList.toggle("active", idx === i);
+        if (idx === i) {
+            el.classList.add("active");
+        } else {
+            el.classList.remove("active");
+        }
     });
-
-    // Scroll suave en móvil
-    if (window.innerWidth < 900) {
-        document.querySelector('.viewer-section').scrollIntoView({ behavior: 'smooth' });
-    }
 }
 
-init();
+// Generar lista dinámica
+PDFS.forEach((p, i) => {
+    const li = document.createElement("li");
+    li.className = "doc-item";
+    li.textContent = p.title;
+    li.onclick = () => loadPdf(i);
+    listEl.appendChild(li);
+});
+
+// Iniciar primera carga
+if (PDFS.length > 0) loadPdf(0);

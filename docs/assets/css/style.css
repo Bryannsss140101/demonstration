@@ -1,165 +1,225 @@
 :root {
-  --bg: #ffffff;
-  --bg-alt: #fcfcfc;
-  --text-main: #111111;
-  --text-muted: #666666;
-  --accent: #000000; /* Negro puro para máximo minimalismo */
-  --border: #f0f0f0;
-  --radius: 4px;
+  /* Paleta "Deep Space" - Profesional y Moderna */
+  --bg-app: #09090b;          /* Casi negro, muy elegante */
+  --bg-sidebar: #0f1014;      /* Ligeramente más claro */
+  --bg-card: #18181b;         /* Para elementos flotantes */
+  
+  --border-subtle: rgba(255, 255, 255, 0.08); /* Bordes casi invisibles */
+  --border-active: rgba(255, 255, 255, 0.15);
+  
+  --text-main: #ededef;       /* Blanco roto (no cansa la vista) */
+  --text-muted: #a1a1aa;      /* Gris plata */
+  
+  --accent-glow: rgba(56, 189, 248, 0.15); /* Resplandor azul */
+  --accent-color: #38bdf8;    /* Azul Cian tecnológico */
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; outline: none; }
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, sans-serif;
-  background-color: var(--bg);
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
   color: var(--text-main);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased; /* Texto nítido en Mac/iOS */
 }
 
+/* --- LAYOUT PRINCIPAL --- */
 .main-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Sidebar fija, contenido flexible */
+  height: 100vh;
 }
 
-/* Header */
-.header {
+/* --- SIDEBAR (PANEL IZQUIERDO) --- */
+.sidebar {
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+}
+
+.brand {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Si tienes logo, se verá genial. Si no, el texto lo sostiene */
+.logo-img { width: 32px; height: 32px; border-radius: 6px; object-fit: cover; }
+
+.brand-text h1 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.brand-text p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 2px 0 0 0;
+}
+
+.nav-section h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #52525b; /* Gris oscuro para títulos secundarios */
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+
+.doc-list { list-style: none; padding: 0; margin: 0; }
+
+.doc-item {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.doc-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+}
+
+.doc-item.active {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 500;
+}
+
+/* Pequeño indicador azul en el item activo */
+.doc-item.active::before {
+  content: "•";
+  color: var(--accent-color);
+  margin-right: 8px;
+}
+
+/* --- VISOR (DERECHA) --- */
+.viewer-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: var(--bg-app);
+  position: relative;
+}
+
+/* Header Flotante con Glassmorphism */
+.viewer-header {
+  padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 60px 0 40px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(9, 9, 11, 0.8); /* Transparencia */
+  backdrop-filter: blur(12px);     /* Efecto borroso detrás */
+  z-index: 10;
 }
 
-.brand h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.02em;
+.info-text h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
 }
 
-.brand p {
+.info-text p {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin: 4px 0 0 0;
-}
-
-.meta { font-size: 0.85rem; color: var(--text-muted); }
-
-/* Layout Grid */
-.content-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 60px;
-  margin-top: 40px;
-}
-
-/* Sidebar */
-.sidebar h3 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.doc-list { list-style: none; padding: 0; }
-
-.doc-item {
-  padding: 12px 0;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s;
-}
-
-.doc-item:hover { color: var(--accent); }
-
-.doc-item.active {
-  color: var(--accent);
-  font-weight: 500;
-  border-bottom: 1px solid var(--accent);
-}
-
-/* Viewer */
-.document-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 30px;
-}
-
-#pdf-title {
-  font-size: 1.25rem;
   margin: 0;
-  font-weight: 600;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
-#pdf-description {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin: 8px 0 0 0;
-  max-width: 500px;
-}
+/* Botones Premium */
+.info-actions { display: flex; gap: 12px; }
 
-/* Buttons */
-.info-actions { display: flex; gap: 20px; align-items: center; }
-
-.btn-text {
+.btn {
   text-decoration: none;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.8rem;
   font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
-
-.btn-text:hover { color: var(--accent); }
 
 .btn-primary {
-  background: var(--accent);
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border-radius: var(--radius);
-  transition: opacity 0.2s;
+  background: var(--text-main);
+  color: var(--bg-app);
+}
+.btn-primary:hover {
+  background: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
-.btn-primary:hover { opacity: 0.8; }
+.btn-secondary {
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  background: transparent;
+}
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}
 
-/* Iframe refinement */
-.iframe-container {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+/* --- IFRAME (DOCUMENTO) --- */
+.iframe-wrapper {
+  flex: 1;
+  padding: 30px 40px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.iframe-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7); /* Sombra profunda */
+  background: #1a1a1a; /* Fondo mientras carga */
+  border: 1px solid var(--border-subtle);
 }
 
 iframe {
   width: 100%;
-  height: 80vh;
+  height: 100%;
   border: none;
   display: block;
 }
 
-/* Footer */
+/* --- FOOTER --- */
 .footer {
-  margin: 80px 0 40px 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 40px;
+  font-size: 0.7rem;
+  color: #3f3f46;
+  pointer-events: none;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .content-grid { grid-template-columns: 1fr; }
-  .header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .document-info { flex-direction: column; gap: 20px; }
+  .main-container { grid-template-columns: 1fr; overflow-y: auto; display: block; }
+  .sidebar { padding: 20px; border-bottom: 1px solid var(--border-subtle); }
+  .viewer-header { flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px; }
+  .iframe-wrapper { height: 600px; padding: 20px; }
 }
