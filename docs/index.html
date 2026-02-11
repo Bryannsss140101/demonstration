@@ -1,54 +1,53 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Research Documentation | Bryan Ninamango</title>
-    <link rel="icon" href="assets/img/logo.png">
+    <title>Technical Notes | Bryan Ninamango</title>
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
 
 <header class="site-header">
     <div class="wrap header-wrap">
-        <div class="brand">
-            <div class="title">Research Documentation</div>
-            <div class="subtitle">
-                Mathematical proofs · Algorithm design · Computational experiments
-            </div>
+        <div>
+            <h1 class="title">Technical Notes</h1>
+            <p class="subtitle">
+                Mathematics · Algorithms · Computational Experiments
+            </p>
         </div>
-        <div class="spacer"></div>
-        <a class="btn" id="open-btn" target="_blank">Open in new tab</a>
-        <a class="btn primary" id="download-btn" download>Download PDF</a>
     </div>
 </header>
 
-<main class="wrap main-wrap grid">
+<main class="wrap layout">
 
-    <aside class="sidebar card">
-        <div class="card-head">
-            <span class="pill">Available Papers</span>
-        </div>
-        <ul class="list" id="pdf-list"></ul>
+    <aside class="sidebar">
+        <h3 class="section-title">Documents</h3>
+        <ul id="pdf-list" class="doc-list"></ul>
     </aside>
 
-    <section class="viewer card">
-        <div class="card-head">
+    <section class="viewer">
+        <div class="viewer-header">
             <div>
-                <div class="doc-title" id="pdf-title">—</div>
-                <div class="doc-description" id="pdf-description"></div>
+                <h2 id="pdf-title">—</h2>
+                <p id="pdf-description" class="description"></p>
             </div>
-            <div class="spacer"></div>
-            <span class="pill online">Preview</span>
+
+            <div class="actions">
+                <a id="open-btn" target="_blank" class="link">Open</a>
+                <a id="download-btn" download class="button">Download</a>
+            </div>
         </div>
+
         <iframe id="pdf-frame"></iframe>
     </section>
 
 </main>
 
-<footer class="wrap site-footer">
-    <div>Built with LaTeX · Hosted on GitHub Pages</div>
-    <div>© 2026 Bryan Ninamango Arroyo</div>
+<footer class="footer wrap">
+    <span>Written in LaTeX · Hosted on GitHub Pages</span>
+    <span>© 2026 Bryan Ninamango Arroyo</span>
 </footer>
 
 <script src="assets/js/app.js"></script>
