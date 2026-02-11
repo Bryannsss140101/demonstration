@@ -1,13 +1,13 @@
 const PDFS = [
     {
         file: "pdf/P1__Circle_Demostration.pdf",
-        title: "Area of a Circle – Integral-Based Proof",
-        description: "A formal mathematical derivation of the area formula using integral calculus and geometric reasoning."
+        title: "Area of a Circle — Integral Derivation",
+        description: "Formal proof of the area formula using integral calculus."
     },
     {
         file: "pdf/P2__TicTacToe.pdf",
-        title: "Tic Tac Toe AI – Algorithmic Development",
-        description: "Design and implementation of an AI agent using decision-tree logic and strategic evaluation."
+        title: "Tic Tac Toe AI — Algorithm Design",
+        description: "Development of a decision-based AI agent."
     }
 ];
 
@@ -20,11 +20,9 @@ const downloadBtn = document.getElementById("download-btn");
 
 PDFS.forEach((p, i) => {
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.className = "list-btn";
-    btn.textContent = p.title;
-    btn.onclick = () => loadPdf(i);
-    li.appendChild(btn);
+    li.className = "doc-item";
+    li.textContent = p.title;
+    li.onclick = () => loadPdf(i);
     listEl.appendChild(li);
 });
 
@@ -36,9 +34,9 @@ function loadPdf(i) {
     openBtn.href = p.file;
     downloadBtn.href = p.file;
 
-    document.querySelectorAll(".list-btn")
-        .forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".list-btn")[i]
+    document.querySelectorAll(".doc-item")
+        .forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".doc-item")[i]
         .classList.add("active");
 }
 
