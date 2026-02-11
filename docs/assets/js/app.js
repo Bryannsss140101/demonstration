@@ -1,16 +1,23 @@
 const PDFS = [
-    { file: "pdf/P1__Circle_Demostration.pdf", title: "Área de un círculo" },
+    {
+        file: "pdf/P1__Circle_Demostration.pdf",
+        title: "Area of a Circle – Integral-Based Proof",
+        description: "A formal mathematical derivation of the area formula using integral calculus and geometric reasoning."
+    },
+    {
+        file: "pdf/P2__TicTacToe.pdf",
+        title: "Tic Tac Toe AI – Algorithmic Development",
+        description: "Design and implementation of an AI agent using decision-tree logic and strategic evaluation."
+    }
 ];
 
-// Elementos
 const listEl = document.getElementById("pdf-list");
 const frameEl = document.getElementById("pdf-frame");
-const nameEl = document.getElementById("pdf-name");
-const subtitleEl = document.getElementById("doc-subtitle");
+const titleEl = document.getElementById("pdf-title");
+const descEl = document.getElementById("pdf-description");
 const openBtn = document.getElementById("open-btn");
 const downloadBtn = document.getElementById("download-btn");
 
-// Renderiza menú
 PDFS.forEach((p, i) => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
@@ -21,20 +28,18 @@ PDFS.forEach((p, i) => {
     listEl.appendChild(li);
 });
 
-// Carga un PDF en el visor
 function loadPdf(i) {
     const p = PDFS[i];
     frameEl.src = p.file;
-    nameEl.textContent = p.file.split("/").pop();
-    subtitleEl.textContent = p.title;
-
+    titleEl.textContent = p.title;
+    descEl.textContent = p.description;
     openBtn.href = p.file;
     downloadBtn.href = p.file;
 
-    // resalta seleccionado
-    document.querySelectorAll(".list-btn").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".list-btn")[i].classList.add("active");
+    document.querySelectorAll(".list-btn")
+        .forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".list-btn")[i]
+        .classList.add("active");
 }
 
-// Cargar el primero al abrir
 loadPdf(0);
